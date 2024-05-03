@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready Player Me Avatar</title>
+</head>
+<body>
+    <h1>My Ready Player Me Avatar</h1>
+    <iframe id="rpm-avatar" src="https://morboproject.readyplayer.me/avatar?id=66344c16c6a3e0f034034b95&bodyType=fullbody&language=en" style="width: 100%; height: 500px; border: none;"></iframe>
+    <script>
+        // Example of handling messages from the iframe
+        window.addEventListener('message', function(event) {
+            if (event.origin.startsWith('https://morboproject.readyplayer.me')) {
+                const data = event.data;
+                console.log('Received message:', data);
+                // Handle specific messages
+                if (data.type === 'avatarCreated') {
+                    alert('Avatar created with URL: ' + data.url);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
